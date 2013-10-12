@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Single App 2</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <script>
+        $(document).on('pageinit', '#login', function(){
+    
+            $('form').submit(function(){
+                $.mobile.changePage('#main', { transition: "pop", reverse: false,changeHash: false });
+                return false;        
+            });
+            
+        });
+        $(document).on('pageinit', '#main', function(){
+            // local 
+                var field1 = $('[name=passwd]').val();
+                console.log(field1);
+                $('.ui-content').text(field1 + " the first that we need to do is ....");
+    
+        });
+    </script>
+</head>
+<body>
+<!-- Start login page -->
+<div data-role="page" id="login">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Single App 2</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+    <form>
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="passwd">Password:</label>
+            <input type="password" placeholder="Write you password" data-clear-btn="true" name="passwd" id="passwd"  value="" autocomplete="off">
+        </div>    
+        <input type="submit" value="Submit" data-type="button" data-theme="e">        
+    </form>
+	</div><!-- /content -->
+
+	<div data-role="footer" data-id="singleAppFooter" data-position="fixed">
+		<h4>SingleApp Example</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Start of second page -->
+<div data-role="page" id="main" data-position="fixed">
+
+	<div data-role="header">
+		<h1>Content</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<p>Protect Content</p>
+        
+	</div><!-- /content -->
+
+	<div data-role="footer" data-id="singleAppFooter" data-position="fixed">
+		<h4>SingleApp 2 Example</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+</body>
+</html>
