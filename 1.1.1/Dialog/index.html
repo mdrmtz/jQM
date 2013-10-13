@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dialog</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <link rel="stylesheet" href="dialog-custom.css" />
+    <script>
+        $(function() {
+            $('div[data-role="dialog"]').live('pagebeforeshow', function(e, ui) {
+                ui.prevPage.addClass("ui-dialog-background ");
+            });
+        
+            $('div[data-role="dialog"]').live('pagehide', function(e, ui) {
+                $(".ui-dialog-background").removeClass("ui-dialog-background ");
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- Start first page -->
+<div data-role="page" id="dialogPage">
+    <div data-role="header">
+        <h1>Transparency & Dialogs</h1>
+    </div><!-- /header -->
+    <div data-role="content">
+        <a href="#main" data-rel="dialog"  data-role="button">Open dialog</a>
+	</div><!-- /content -->
+	<div data-role="footer" data-position="fixed">
+		<h4>Dialog Solution</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+    
+<!-- Start of second page -->
+<div data-role="page" id="main" >
+
+	<div data-role="header">
+		<h1>Content</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<p>Dialog Content</p>
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed">
+		<h4>Dialog Solution</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+</body>
+</html>
